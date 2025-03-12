@@ -285,12 +285,12 @@ export default class Hovercards {
 					ref: this._onQueryHovercardRef( ref ) || ref,
 				};
 			} )
+			.filter( Boolean )
 			.map( ( hovercardRef: HovercardRef ) => ( {
 				...hovercardRef,
 				onEnter: ( e: MouseEvent ) => this._handleMouseEnter( e, hovercardRef ),
 				onLeave: ( e: MouseEvent ) => this._handleMouseLeave( e, hovercardRef ),
-			} ) )
-			.filter( Boolean );
+			} ) );
 
 		return this._hovercardRefs;
 	}
