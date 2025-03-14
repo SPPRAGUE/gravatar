@@ -2,7 +2,7 @@ import type { Placement } from './assign-position';
 import assignPosition from './assign-position';
 import { escUrl, escHtml } from './sanitizer';
 import addQueryArg from './add-query-arg';
-import __ from './i18n';
+import __t from './i18n';
 
 interface AccountData {
 	service_type: string;
@@ -363,24 +363,24 @@ export default class Hovercards {
 		if ( nonEmptyContacts.length || hasPayments ) {
 			if ( nonEmptyContacts.length ) {
 				ctaButtons += `
-					<button class="gravatar-hovercard__button" data-target-drawer="contact">${ __( i18n, 'Contact' ) }</button>
+					<button class="gravatar-hovercard__button" data-target-drawer="contact">${ __t( i18n, 'Contact' ) }</button>
 				`;
 
 				contactsDrawer = Hovercards._createDrawer(
 					'contact',
-					__( i18n, 'Contact' ),
+					__t( i18n, 'Contact' ),
 					Hovercards._createContactDrawerContent( nonEmptyContacts )
 				);
 			}
 
 			if ( hasPayments ) {
 				ctaButtons += `
-					<button class="gravatar-hovercard__button" data-target-drawer="send-money">${ __( i18n, 'Send money' ) }</button>
+					<button class="gravatar-hovercard__button" data-target-drawer="send-money">${ __t( i18n, 'Send money' ) }</button>
 				`;
 
 				sendMoneyDrawer = Hovercards._createDrawer(
 					'send-money',
-					__( i18n, 'Send money' ),
+					__t( i18n, 'Send money' ),
 					Hovercards._createSendMoneyDrawerContent( payments )
 				);
 			}
@@ -426,7 +426,7 @@ export default class Hovercards {
 						href="${ isEditProfile ? 'https://gravatar.com/profiles/edit?utm_source=hovercard' : trackedProfileUrl }"
 						target="_blank"
 					>
-						${ isEditProfile ? __( i18n, 'Edit your profile →' ) : __( i18n, 'View profile →' ) }
+						${ isEditProfile ? __t( i18n, 'Edit your profile →' ) : __t( i18n, 'View profile →' ) }
 					</a>
 				</div>
 				${ contactsDrawer }
@@ -801,17 +801,17 @@ export default class Hovercards {
 						this._onHovercardShown( hash, hovercard );
 					} )
 					.catch( ( code ) => {
-						let message = __( this._i18n, 'Sorry, we are unable to load this Gravatar profile.' );
+						let message = __t( this._i18n, 'Sorry, we are unable to load this Gravatar profile.' );
 
 						switch ( code ) {
 							case 404:
-								message = __( this._i18n, 'Profile not found.' );
+								message = __t( this._i18n, 'Profile not found.' );
 								break;
 							case 429:
-								message = __( this._i18n, 'Too Many Requests.' );
+								message = __t( this._i18n, 'Too Many Requests.' );
 								break;
 							case 500:
-								message = __( this._i18n, 'Internal Server Error.' );
+								message = __t( this._i18n, 'Internal Server Error.' );
 								break;
 						}
 
