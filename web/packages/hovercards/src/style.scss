@@ -336,7 +336,7 @@ $font-sf-pro: "SF Pro Text", -apple-system, BlinkMacSystemFont, "Segoe UI", Robo
 		}
 	}
 
-	&--open {
+	&.gravatar-hovercard__drawer--open {
 		visibility: visible;
 
 		.gravatar-hovercard__drawer-backdrop {
@@ -348,7 +348,7 @@ $font-sf-pro: "SF Pro Text", -apple-system, BlinkMacSystemFont, "Segoe UI", Robo
 		}
 	}
 
-	&--closing {
+	&.gravatar-hovercard__drawer--closing {
 		visibility: visible;
 
 		.gravatar-hovercard__drawer-backdrop {
