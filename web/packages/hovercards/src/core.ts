@@ -840,20 +840,20 @@ export default class Hovercards {
 					.catch( ( code ) => {
 						let message = __t( this._i18n, 'Sorry, we are unable to load this Gravatar profile.' );
 
-					switch ( code ) {
-						case 403:
-							message = __t( this._i18n, 'This profile is private.' );
-							break;
-						case 404:
-							message = __t( this._i18n, 'Gravatar not found.' );
-							break;
-						case 429:
-							message = __t( this._i18n, 'Too Many Requests.' );
-							break;
-						case 500:
-							message = __t( this._i18n, 'Internal Server Error.' );
-							break;
-					}
+						switch ( code ) {
+							case 403:
+								message = __t( this._i18n, 'This profile is private.' );
+								break;
+							case 404:
+								message = __t( this._i18n, 'Gravatar not found.' );
+								break;
+							case 429:
+								message = __t( this._i18n, 'Too Many Requests.' );
+								break;
+							case 500:
+								message = __t( this._i18n, 'Internal Server Error.' );
+								break;
+						}
 
 						const additionalMessage =
 							code === 404
